@@ -9,7 +9,7 @@ pipeline {
             }
         stage('Build') {
             steps {
-                powershell '.\\mvnw.cmd clean package'
+                powershell '.\\mvnw.cmd clean compile'
             }
 
             post {
@@ -18,6 +18,11 @@ pipeline {
                     archiveArtifacts 'target/*.jar'
                 }
             }
+            //changed {
+                emailext attachLog: true, body: 'Test Body', compressLog: true,
+                recipientProviders: [upstreamDevelopers(), requestor()],
+                subject: 'Test Subject', to: "test@jenkins"
+            //}
         }
     }
 }

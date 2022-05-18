@@ -1,0 +1,17 @@
+{
+    "jenkins-runner.jobs": {
+        "ide": {
+            "runWith": "pipeline.groovy",
+            "name": "ide",
+            "isDefault": true
+        }
+    },
+    "jenkins-runner.hostConfigs": {
+        "pipelines-8080": {
+            "url": "http://localhost:8080",
+            "user": "famy0157",
+            "password": "h4ck3rm4n",
+            "useCrumbIssuer": true
+        }
+    }
+}
